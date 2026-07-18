@@ -1,11 +1,334 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>我的作品集</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>超限戦（The Unrestricted War）上映会 ｜ 未来社会フォーラム</title>
+  <meta name="description" content="未来社会フォーラム主催・映画『超限戦（The Unrestricted War）』上映会。上映スケジュール、作品紹介、チケット情報。">
+  <meta property="og:title" content="映画『超限戦』上映会 ｜ 未来社会フォーラム">
+  <meta property="og:description" content="コロナ禍を背景に、科学・権力・情報統制を描く社会派ドラマ。上映スケジュールとチケット情報。">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-soft: #141417;
+      --bg-card: #17171b;
+      --line: #2a2a30;
+      --fg: #f2f2f4;
+      --fg-dim: #a7a7b0;
+      --accent: #b71c1c;
+      --accent-bright: #e53935;
+      --max: 1000px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, system-ui, sans-serif;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Top bar ---------- */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10,10,11,0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; min-height: 60px;
+    }
+    .brand { font-size: 0.82rem; letter-spacing: 0.14em; color: var(--fg-dim); font-weight: 600; }
+    .brand strong { color: var(--fg); display: block; letter-spacing: 0.05em; }
+    .btn {
+      display: inline-block; text-decoration: none; text-align: center;
+      background: var(--accent); color: #fff; font-weight: 700;
+      padding: 12px 22px; border-radius: 6px; font-size: 0.95rem;
+      border: 1px solid var(--accent-bright);
+      transition: background .15s ease, transform .1s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--accent-bright); }
+    .btn:active { transform: translateY(1px); }
+    .btn-sm { padding: 9px 16px; font-size: 0.85rem; }
+    .btn-ghost {
+      background: transparent; color: var(--fg);
+      border: 1px solid var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--fg-dim); background: var(--bg-soft); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(1000px 500px at 80% -10%, rgba(183,28,28,0.22), transparent 60%),
+        linear-gradient(180deg, #0d0d0f, var(--bg));
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 300px; gap: 40px;
+      align-items: center; padding: 60px 0 64px;
+    }
+    .eyebrow {
+      display: inline-block; font-size: 0.72rem; letter-spacing: 0.28em;
+      color: var(--accent-bright); font-weight: 700; margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 7vw, 3.6rem); line-height: 1.15;
+      letter-spacing: 0.02em; font-weight: 800;
+    }
+    .hero h1 .en { display: block; font-size: 0.42em; letter-spacing: 0.18em; color: var(--fg-dim); font-weight: 600; margin-top: 10px; }
+    .tagline {
+      margin-top: 22px; font-size: 1.02rem; color: var(--fg);
+      letter-spacing: 0.06em; font-style: italic;
+      border-left: 3px solid var(--accent); padding-left: 14px;
+    }
+    .hero-cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .poster {
+      aspect-ratio: 2 / 3; border: 1px solid var(--line); border-radius: 8px;
+      background: repeating-linear-gradient(45deg, #141417, #141417 12px, #101013 12px, #101013 24px);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--fg-dim); font-size: 0.8rem; text-align: center; padding: 16px;
+    }
+    /* 海報：之後把上の .poster を下の img に差し替えてください
+       <img class="poster-img" src="poster.jpg" alt="超限戦 ポスター"> */
+    .poster-img { aspect-ratio: 2 / 3; object-fit: cover; border: 1px solid var(--line); border-radius: 8px; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+    .sec-label {
+      font-size: 0.72rem; letter-spacing: 0.24em; color: var(--accent-bright);
+      font-weight: 700; text-transform: uppercase; margin-bottom: 10px;
+    }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; letter-spacing: 0.03em; margin-bottom: 28px; }
+    h3 { font-size: 1.05rem; font-weight: 700; margin: 26px 0 10px; color: var(--fg); }
+    p { color: var(--fg-dim); }
+    p + p { margin-top: 14px; }
+
+    /* ---------- Schedule ---------- */
+    .note-pending {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; color: var(--accent-bright);
+      border: 1px solid var(--accent); border-radius: 999px;
+      padding: 3px 12px; margin-left: 10px; vertical-align: middle;
+    }
+    .schedule { display: grid; gap: 14px; }
+    /* スケジュール枠：日付・会場が決まったら下記カードの内容を書き換えてください */
+    .sched-card {
+      display: grid; grid-template-columns: 130px 1fr auto; gap: 20px;
+      align-items: center;
+      background: var(--bg-card); border: 1px solid var(--line);
+      border-radius: 10px; padding: 20px 22px;
+    }
+    .sched-date { font-size: 1.15rem; font-weight: 800; color: var(--fg); letter-spacing: 0.02em; }
+    .sched-date small { display: block; font-size: 0.72rem; color: var(--fg-dim); font-weight: 600; letter-spacing: 0.1em; margin-top: 2px; }
+    .sched-detail { color: var(--fg-dim); font-size: 0.95rem; }
+    .sched-detail .venue { color: var(--fg); font-weight: 600; }
+    .sched-note { color: var(--fg-dim); font-size: 0.9rem; margin-top: 8px; }
+
+    /* ---------- Work info ---------- */
+    .spec {
+      list-style: none; border: 1px solid var(--line); border-radius: 10px;
+      overflow: hidden; background: var(--bg-card);
+    }
+    .spec li {
+      display: grid; grid-template-columns: 180px 1fr; gap: 16px;
+      padding: 14px 20px; border-bottom: 1px solid var(--line);
+    }
+    .spec li:last-child { border-bottom: 0; }
+    .spec dt { color: var(--fg-dim); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; }
+    .spec dd { color: var(--fg); }
+    .story p { color: var(--fg-dim); }
+    .trailers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 16px; }
+    .trailer {
+      border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+      background: #000;
+    }
+    .trailer-frame { position: relative; aspect-ratio: 16 / 9; }
+    .trailer-frame iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }
+    .trailer-cap {
+      padding: 10px 14px; font-size: 0.82rem; color: var(--fg-dim);
+      letter-spacing: 0.06em; border-top: 1px solid var(--line); background: var(--bg-card);
+    }
+
+    /* ---------- Ticket ---------- */
+    .ticket {
+      background:
+        radial-gradient(700px 300px at 50% 0%, rgba(183,28,28,0.18), transparent 65%),
+        var(--bg-soft);
+      text-align: center;
+    }
+    .ticket h2 { margin-bottom: 14px; }
+    .ticket p { max-width: 620px; margin-left: auto; margin-right: auto; }
+    .ticket-cta { margin-top: 26px; }
+    .ticket-cta .btn { font-size: 1.05rem; padding: 15px 40px; }
+    .ticket-sub { margin-top: 16px; font-size: 0.82rem; color: var(--fg-dim); }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 44px 0 60px; }
+    .foot-org { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.05em; }
+    .foot-links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 18px; }
+    .foot-links a { color: var(--fg-dim); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid transparent; }
+    .foot-links a:hover { color: var(--fg); border-bottom-color: var(--accent); }
+    .copyright { margin-top: 26px; font-size: 0.78rem; color: #5f5f68; }
+
+    /* ---------- Responsive / mobile ---------- */
+    @media (max-width: 760px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 44px; }
+      .poster { max-width: 240px; margin: 0 auto; }
+      .btn-header { display: none; } /* スマホでは上部の重複ボタンを隠し、下部CTAへ誘導 */
+      .sched-card { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
+      .sched-card .btn { justify-self: start; margin-top: 6px; }
+      .spec li { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; }
+      .spec dt { font-size: 0.78rem; letter-spacing: 0.08em; }
+      .trailers { grid-template-columns: 1fr; gap: 14px; }
+      section { padding: 44px 0; }
+    }
+    @media (max-width: 400px) {
+      .wrap { padding: 0 16px; }
+      .ticket-cta .btn { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <h1>歡迎來到我的作品展示</h1>
-  <p>這裡是我的作品介紹。</p>
+
+  <!-- ===== Top bar ===== -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand"><strong>未来社会フォーラム</strong>Future Society Forum</div>
+      <a class="btn btn-sm btn-header" href="https://teket.jp/" target="_blank" rel="noopener">チケット</a>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">未来社会フォーラム 上映会</span>
+        <h1>超限戦<span class="en">The Unrestricted War</span></h1>
+        <p class="tagline">THE DEADLIEST VIRUS WAS THE LIE ―― 最も恐ろしいウイルスは、その「嘘」だった。</p>
+        <div class="hero-cta">
+          <a class="btn" href="https://teket.jp/" target="_blank" rel="noopener">チケット購入</a>
+          <a class="btn btn-ghost" href="#schedule">上映スケジュール</a>
+        </div>
+      </div>
+      <!-- 海報：画像が用意できたら下の div を
+           <img class="poster-img" src="poster.jpg" alt="超限戦 ポスター"> に差し替えてください -->
+      <div class="poster">ポスター画像<br>（準備中）</div>
+    </div>
+  </div>
+
+  <!-- ===== Schedule ===== -->
+  <section id="schedule">
+    <div class="wrap">
+      <div class="sec-label">Schedule</div>
+      <h2>上映スケジュール<span class="note-pending">調整中</span></h2>
+
+      <!-- ▼▼▼ 日付・会場が決まったら、この sched-card の中身を書き換えてください ▼▼▼ -->
+      <div class="schedule">
+        <div class="sched-card">
+          <div class="sched-date">日程調整中<small>DATE — TBD</small></div>
+          <div class="sched-detail">
+            <span class="venue">会場：調整中</span><br>
+            開場 --:-- ／ 上映 --:--（上映時間 2時間20分）
+          </div>
+          <a class="btn btn-sm" href="https://teket.jp/" target="_blank" rel="noopener">チケット</a>
+        </div>
+      </div>
+      <!-- ▲▲▲ 回数を増やす場合は上の sched-card ブロックをコピーしてください ▲▲▲ -->
+
+      <p class="sched-note">※ 上映日程・会場の詳細は、決まり次第こちらのページでお知らせいたします。ご予約は不要です。</p>
+    </div>
+  </section>
+
+  <!-- ===== Work info ===== -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-label">About the Film</div>
+      <h2>作品紹介</h2>
+
+      <ul class="spec">
+        <li><dt>作品タイトル</dt><dd>超限戦（The Unrestricted War）</dd></li>
+        <li><dt>制作年</dt><dd>2025年</dd></li>
+        <li><dt>上映時間</dt><dd>2時間20分</dd></li>
+        <li><dt>監督／制作国</dt><dd>Yan MA（カナダ）</dd></li>
+        <li><dt>ジャンル</dt><dd>社会派ドラマ／緊張感のあるストーリー作品</dd></li>
+        <li><dt>字幕</dt><dd>日本語</dd></li>
+      </ul>
+
+      <div class="story">
+        <h3>あらすじ</h3>
+        <p>映画『超限戦』（The Unrestricted War）は、新型コロナウイルスのパンデミックという現代的な出来事を背景に、科学、権力、情報統制、そして個人の倫理といったテーマを描いた長編劇映画です。カナダ在住の監督 Yan MA が手がけた本作は、実際の出来事に着想を得ており、社会性とエンターテインメント性を兼ね備えた作品として構成されています。</p>
+        <p>物語は、カナダ人ウイルス学者ジムが、中国との研究協力の最中に突如拘束され、北京で監禁されるところから始まります。同時期、武漢（中国）から謎のウイルスが拡散し、やがて世界的なパンデミックへと発展します。ジムは、自身の拘束が単なる偶発的な事件ではなく、国家レベルの隠された思惑と結びついていることに気づき、脱出と真相究明に挑みます。</p>
+        <p>本作は、観客を引き込む緊張感あふれる展開の中で、社会の一員としての倫理観と外部からの圧力との葛藤を鋭く描き出し、現代社会における「情報」と「権力」のあり方に静かな問いを投げかけます。実際の出来事を想起させる設定により、観る者の関心を強く喚起するとともに高い没入感をもたらし、鑑賞後の対話やさらなる考察を促す作品となっています。</p>
+
+        <h3>予告編</h3>
+        <div class="trailers">
+          <div class="trailer">
+            <div class="trailer-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/rE7YF0O2_OE" title="超限戦 予告編 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="trailer-cap">予告編 1</div>
+          </div>
+          <div class="trailer">
+            <div class="trailer-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/hiLmnx-p69A" title="超限戦 予告編 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="trailer-cap">予告編 2</div>
+          </div>
+          <div class="trailer">
+            <div class="trailer-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/UWAy5xnzStY" title="超限戦 予告編 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="trailer-cap">予告編 3</div>
+          </div>
+          <div class="trailer">
+            <div class="trailer-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/xsLBRijyFqQ" title="超限戦 予告編 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="trailer-cap">予告編 4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Ticket ===== -->
+  <section id="ticket" class="ticket">
+    <div class="wrap">
+      <div class="sec-label">Ticket</div>
+      <h2>チケット</h2>
+      <p>ご予約は不要です。チケットは外部サイト「teket（テケト）」にて販売いたします。下のボタンから購入ページへお進みください。</p>
+      <div class="ticket-cta">
+        <a class="btn" href="https://teket.jp/" target="_blank" rel="noopener">teket でチケットを購入</a>
+      </div>
+      <!-- 正式な販売ページが用意できたら、上のリンク href を専用URLに差し替えてください -->
+      <p class="ticket-sub">※ 販売ページは準備中です。公開まで今しばらくお待ちください。</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-org">未来社会フォーラム</div>
+      <p style="margin-top:8px;">映画『超限戦（The Unrestricted War）』上映会 主催</p>
+      <div class="foot-links">
+        <a href="https://www.unrestrictedwarmovie.com/" target="_blank" rel="noopener">映画公式サイト ↗</a>
+        <a href="https://teket.jp/" target="_blank" rel="noopener">チケット（teket） ↗</a>
+      </div>
+      <div class="copyright">© 未来社会フォーラム</div>
+    </div>
+  </footer>
+
 </body>
 </html>
