@@ -86,11 +86,6 @@
       letter-spacing: 0.02em; font-weight: 800;
     }
     .hero h1 .en { display: block; font-size: 0.42em; letter-spacing: 0.18em; color: var(--fg-dim); font-weight: 600; margin-top: 10px; }
-    .tagline {
-      margin-top: 22px; font-size: 1.02rem; color: var(--fg);
-      letter-spacing: 0.06em; font-style: italic;
-      border-left: 3px solid var(--accent); padding-left: 14px;
-    }
     .hero-cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
     .poster {
       aspect-ratio: 2 / 3; border: 1px solid var(--line); border-radius: 8px;
@@ -114,12 +109,6 @@
     p + p { margin-top: 14px; }
 
     /* ---------- Schedule ---------- */
-    .note-pending {
-      display: inline-block; font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.1em; color: var(--accent-bright);
-      border: 1px solid var(--accent); border-radius: 999px;
-      padding: 3px 12px; margin-left: 10px; vertical-align: middle;
-    }
     .schedule { display: grid; gap: 14px; }
     /* スケジュール枠：日付・会場が決まったら下記カードの内容を書き換えてください */
     .sched-card {
@@ -135,17 +124,7 @@
     .sched-note { color: var(--fg-dim); font-size: 0.9rem; margin-top: 8px; }
 
     /* ---------- Work info ---------- */
-    .spec {
-      list-style: none; border: 1px solid var(--line); border-radius: 10px;
-      overflow: hidden; background: var(--bg-card);
-    }
-    .spec li {
-      display: grid; grid-template-columns: 180px 1fr; gap: 16px;
-      padding: 14px 20px; border-bottom: 1px solid var(--line);
-    }
-    .spec li:last-child { border-bottom: 0; }
-    .spec dt { color: var(--fg-dim); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; }
-    .spec dd { color: var(--fg); }
+    .spec-text { color: var(--fg-dim); line-height: 2; margin-top: 16px; }
     .story p { color: var(--fg-dim); }
     .trailers { display: grid; grid-template-columns: minmax(0, 560px); justify-content: center; gap: 18px; margin-top: 16px; }
     .trailer {
@@ -190,8 +169,6 @@
       .btn-header { display: none; } /* スマホでは上部の重複ボタンを隠し、下部CTAへ誘導 */
       .sched-card { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
       .sched-card .btn { justify-self: start; margin-top: 6px; }
-      .spec li { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; }
-      .spec dt { font-size: 0.78rem; letter-spacing: 0.08em; }
       .trailers { grid-template-columns: 1fr; gap: 14px; }
       section { padding: 44px 0; }
     }
@@ -215,9 +192,8 @@
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">未来社会フォーラム 上映会</span>
+        <span class="eyebrow">最も恐ろしいウイルスは、その「嘘」だった</span>
         <h1>超限戦<span class="en">The Unrestricted War</span></h1>
-        <p class="tagline">THE DEADLIEST VIRUS WAS THE LIE ―― 最も恐ろしいウイルスは、その「嘘」だった。</p>
         <div class="hero-cta">
           <a class="btn" href="https://teket.jp/" target="_blank" rel="noopener">チケット購入</a>
           <a class="btn btn-ghost" href="#schedule">上映スケジュール</a>
@@ -233,22 +209,28 @@
   <section id="schedule">
     <div class="wrap">
       <div class="sec-label">Schedule</div>
-      <h2>上映スケジュール<span class="note-pending">調整中</span></h2>
+      <h2>上映スケジュール</h2>
 
-      <!-- ▼▼▼ 日付・会場が決まったら、この sched-card の中身を書き換えてください ▼▼▼ -->
       <div class="schedule">
         <div class="sched-card">
-          <div class="sched-date">日程調整中<small>DATE — TBD</small></div>
+          <div class="sched-date">10/25（日）<small>15:00 開演</small></div>
           <div class="sched-detail">
-            <span class="venue">会場：調整中</span><br>
-            開場 --:-- ／ 上映 --:--（上映時間 2時間20分）
+            <span class="venue">シネマハウス大塚</span><br>
+            定員65名（上映時間 2時間20分）
+          </div>
+          <a class="btn btn-sm" href="https://teket.jp/" target="_blank" rel="noopener">チケット</a>
+        </div>
+        <div class="sched-card">
+          <div class="sched-date">10/31（土）<small>14:00 開演</small></div>
+          <div class="sched-detail">
+            <span class="venue">さいたま市芸術劇場の映像ホール</span><br>
+            定員150名（上映時間 2時間20分）
           </div>
           <a class="btn btn-sm" href="https://teket.jp/" target="_blank" rel="noopener">チケット</a>
         </div>
       </div>
-      <!-- ▲▲▲ 回数を増やす場合は上の sched-card ブロックをコピーしてください ▲▲▲ -->
 
-      <p class="sched-note">※ 上映日程・会場の詳細は、決まり次第こちらのページでお知らせいたします。ご予約は不要です。</p>
+      <p class="sched-note">※ 全席自由席です。ご予約は不要です。</p>
     </div>
   </section>
 
@@ -258,14 +240,14 @@
       <div class="sec-label">About the Film</div>
       <h2>作品紹介</h2>
 
-      <ul class="spec">
-        <li><dt>作品タイトル</dt><dd>超限戦（The Unrestricted War）</dd></li>
-        <li><dt>制作年</dt><dd>2025年</dd></li>
-        <li><dt>上映時間</dt><dd>2時間20分</dd></li>
-        <li><dt>監督／制作国</dt><dd>Yan MA（カナダ）</dd></li>
-        <li><dt>ジャンル</dt><dd>社会派ドラマ／緊張感のあるストーリー作品</dd></li>
-        <li><dt>字幕</dt><dd>日本語</dd></li>
-      </ul>
+      <p class="spec-text">
+        作品タイトル：超限戦（The Unrestricted War）<br>
+        制作年：2025年<br>
+        上映時間：2時間20分<br>
+        監督／制作国：Yan MA（カナダ）<br>
+        ジャンル：社会派ドラマ／緊張感のあるストーリー作品<br>
+        字幕：日本語
+      </p>
 
       <div class="story">
         <h3>あらすじ</h3>
