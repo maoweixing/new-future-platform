@@ -60,11 +60,6 @@
     .btn:hover { background: var(--accent-bright); }
     .btn:active { transform: translateY(1px); }
     .btn-sm { padding: 9px 16px; font-size: 0.85rem; }
-    .btn-ghost {
-      background: transparent; color: var(--fg);
-      border: 1px solid var(--line);
-    }
-    .btn-ghost:hover { border-color: var(--fg-dim); background: var(--bg-soft); }
 
     /* ---------- Hero ---------- */
     .hero {
@@ -150,8 +145,6 @@
     }
     .ticket h2 { margin-bottom: 14px; }
     .ticket p { max-width: 620px; margin-left: auto; margin-right: auto; }
-    .ticket-cta { margin-top: 26px; }
-    .ticket-cta .btn { font-size: 1.05rem; padding: 15px 40px; }
     .ticket-sub { margin-top: 16px; font-size: 0.82rem; color: var(--fg-dim); }
 
     /* ---------- Footer ---------- */
@@ -167,7 +160,6 @@
     @media (max-width: 760px) {
       .hero-grid { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 44px; }
       .poster { max-width: 240px; margin: 0 auto; }
-      .btn-header { display: none; } /* スマホでは上部の重複ボタンを隠し、下部CTAへ誘導 */
       .sched-card { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
       .sched-card .btn { justify-self: start; margin-top: 6px; }
       .trailers { grid-template-columns: 1fr; gap: 14px; }
@@ -175,7 +167,6 @@
     }
     @media (max-width: 400px) {
       .wrap { padding: 0 16px; }
-      .ticket-cta .btn { width: 100%; }
     }
   </style>
 </head>
@@ -185,7 +176,6 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <div class="brand"><strong>未来社会フォーラム</strong>Future Society Forum</div>
-      <a class="btn btn-sm btn-header" href="https://teket.jp/" target="_blank" rel="noopener">チケット</a>
     </div>
   </header>
 
@@ -196,8 +186,7 @@
         <span class="eyebrow">最も恐ろしいウイルスは、その「嘘」だった</span>
         <h1>超限戦<span class="en">The Unrestricted War</span></h1>
         <div class="hero-cta">
-          <a class="btn" href="https://teket.jp/" target="_blank" rel="noopener">チケット購入</a>
-          <a class="btn btn-ghost" href="#schedule">上映スケジュール</a>
+          <a class="btn" href="#schedule">上映スケジュール</a>
         </div>
       </div>
       <!-- 海報：画像が用意できたら下の div を
@@ -274,11 +263,7 @@
     <div class="wrap">
       <div class="sec-label">Ticket</div>
       <h2>チケット</h2>
-      <p>ご予約は不要です。チケットは外部サイト「teket（テケト）」にて販売いたします。下のボタンから購入ページへお進みください。</p>
-      <div class="ticket-cta">
-        <a class="btn" href="https://teket.jp/" target="_blank" rel="noopener">teket でチケットを購入</a>
-      </div>
-      <!-- 正式な販売ページが用意できたら、上のリンク href を専用URLに差し替えてください -->
+      <p>ご予約は不要です。チケットは外部サイト「teket（テケト）」にて販売いたします。上映スケジュールの各回にある「チケット」ボタンから購入ページへお進みください。</p>
       <p class="ticket-sub">※ 販売ページは準備中です。公開まで今しばらくお待ちください。</p>
     </div>
   </section>
@@ -291,7 +276,6 @@
       <p class="foot-desc">未来社会フォーラムは、世界の人権問題、とりわけ中国で続く人権侵害に焦点を当て、未来の社会に必要な価値を考える市民団体です。海外の映画・ドキュメンタリーの上映、本の出版、映画人や弁護士など専門家の招聘を通じて、国際的な人権課題を日本社会へ伝える活動を行っています。現在、NPO法人取得に向けた準備を進めています。</p>
       <div class="foot-links">
         <a href="https://www.unrestrictedwarmovie.com/" target="_blank" rel="noopener">映画公式サイト ↗</a>
-        <a href="https://teket.jp/" target="_blank" rel="noopener">チケット（teket） ↗</a>
       </div>
       <div class="copyright">© 未来社会フォーラム</div>
     </div>
