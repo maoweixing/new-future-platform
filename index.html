@@ -83,14 +83,6 @@
     }
     .hero h1 .en { display: block; font-size: 0.42em; letter-spacing: 0.18em; color: var(--fg-dim); font-weight: 600; margin-top: 10px; }
     .hero-cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
-    .poster {
-      aspect-ratio: 2 / 3; border: 1px solid var(--line); border-radius: 8px;
-      background: repeating-linear-gradient(45deg, #141417, #141417 12px, #101013 12px, #101013 24px);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--fg-dim); font-size: 0.8rem; text-align: center; padding: 16px;
-    }
-    /* 海報：之後把上の .poster を下の img に差し替えてください
-       <img class="poster-img" src="poster.jpg" alt="超限戦 ポスター"> */
     .poster-img { aspect-ratio: 2 / 3; object-fit: cover; border: 1px solid var(--line); border-radius: 8px; }
 
     /* ---------- Sections ---------- */
@@ -159,7 +151,7 @@
     /* ---------- Responsive / mobile ---------- */
     @media (max-width: 760px) {
       .hero-grid { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 44px; }
-      .poster { max-width: 240px; margin: 0 auto; }
+      .poster-img { max-width: 240px; margin: 0 auto; }
       .sched-card { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
       .sched-card .btn { justify-self: start; margin-top: 6px; }
       .trailers { grid-template-columns: 1fr; gap: 14px; }
@@ -189,9 +181,7 @@
           <a class="btn" href="#schedule">上映スケジュール</a>
         </div>
       </div>
-      <!-- 海報：画像が用意できたら下の div を
-           <img class="poster-img" src="poster.jpg" alt="超限戦 ポスター"> に差し替えてください -->
-      <div class="poster">ポスター画像<br>（準備中）</div>
+      <img class="poster-img" src="poster.jpg" alt="超限戦 ポスター">
     </div>
   </div>
 
