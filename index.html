@@ -111,23 +111,25 @@
     .sched-detail .venue { color: var(--fg); font-weight: 600; }
     .sched-note { color: var(--fg-dim); font-size: 0.9rem; margin-top: 8px; }
 
-    .price-info { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
-    .price-card {
-      display: flex; gap: 16px; align-items: flex-start;
-      background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: 10px; padding: 18px 20px;
+    .price-table-wrap {
+      margin-top: 20px; background: var(--bg-card); border: 1px solid var(--line);
+      border-radius: 10px; overflow: hidden;
     }
-    .price-tag {
-      flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--accent); color: #fff; font-weight: 800; font-size: 0.8rem;
-      writing-mode: vertical-rl; letter-spacing: 0.05em;
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table th, .price-table td { padding: 14px 18px; text-align: left; font-size: 0.92rem; }
+    .price-table thead th {
+      color: var(--fg-dim); font-size: 0.72rem; letter-spacing: 0.1em; font-weight: 700;
+      border-bottom: 1px solid var(--line); text-transform: uppercase;
     }
-    .price-note { color: var(--fg-dim); font-size: 0.82rem; margin-bottom: 8px; }
-    .price-row { display: flex; justify-content: space-between; gap: 12px; font-size: 0.95rem; color: var(--fg); }
-    .price-row + .price-row { margin-top: 4px; }
-    .price-row span:first-child { color: var(--fg-dim); }
-    .price-row span:last-child { font-weight: 700; }
+    .price-table tbody th {
+      color: var(--fg); font-weight: 700; white-space: nowrap;
+    }
+    .price-table tbody tr:not(:last-child) td,
+    .price-table tbody tr:not(:last-child) th { border-bottom: 1px solid var(--line); }
+    .price-table td { color: var(--fg-dim); }
+    .price-table td.amount { color: var(--fg); font-weight: 700; text-align: right; }
+    .price-table th.amount-head, .price-table td.amount { white-space: nowrap; }
+    .price-note { color: var(--fg-dim); font-size: 0.82rem; margin-top: 10px; }
 
     /* ---------- Work info ---------- */
     .spec-text { color: var(--fg-dim); line-height: 2; margin-top: 16px; }
@@ -161,7 +163,7 @@
       .poster-img { max-width: 240px; margin: 0 auto; }
       .sched-card { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
       .sched-card .btn { justify-self: start; margin-top: 6px; }
-      .price-info { grid-template-columns: 1fr; }
+      .price-table th, .price-table td { padding: 12px; font-size: 0.85rem; }
       .trailers { grid-template-columns: 1fr; gap: 14px; }
       section { padding: 44px 0; }
     }
@@ -218,24 +220,30 @@
         </div>
       </div>
 
-      <div class="price-info">
-        <div class="price-card">
-          <span class="price-tag">前売券</span>
-          <div>
-            <p class="price-note">右記QRコードにてご購入</p>
-            <div class="price-row"><span>一般</span><span>¥1,500</span></div>
-            <div class="price-row"><span>高校生以下</span><span>¥1,000</span></div>
-          </div>
-        </div>
-        <div class="price-card">
-          <span class="price-tag">当日券</span>
-          <div>
-            <p class="price-note">当日会場にてご購入</p>
-            <div class="price-row"><span>一般</span><span>¥1,900</span></div>
-            <div class="price-row"><span>高校生以下</span><span>¥1,500</span></div>
-          </div>
-        </div>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">区分</th>
+              <th scope="col" class="amount-head">一般</th>
+              <th scope="col" class="amount-head">高校生以下</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">前売券</th>
+              <td class="amount">¥1,500</td>
+              <td class="amount">¥1,000</td>
+            </tr>
+            <tr>
+              <th scope="row">当日券</th>
+              <td class="amount">¥1,900</td>
+              <td class="amount">¥1,500</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <p class="price-note">※ 前売券は上記各回の「チケット」ボタンより外部サイトでご購入いただけます。当日券は当日会場にてご購入ください。</p>
 
       <p class="sched-note">※ 全席自由席です。ご予約は不要です。</p>
     </div>
