@@ -111,6 +111,24 @@
     .sched-detail .venue { color: var(--fg); font-weight: 600; }
     .sched-note { color: var(--fg-dim); font-size: 0.9rem; margin-top: 8px; }
 
+    .price-info { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+    .price-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--bg-card); border: 1px solid var(--line);
+      border-radius: 10px; padding: 18px 20px;
+    }
+    .price-tag {
+      flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--accent); color: #fff; font-weight: 800; font-size: 0.8rem;
+      writing-mode: vertical-rl; letter-spacing: 0.05em;
+    }
+    .price-note { color: var(--fg-dim); font-size: 0.82rem; margin-bottom: 8px; }
+    .price-row { display: flex; justify-content: space-between; gap: 12px; font-size: 0.95rem; color: var(--fg); }
+    .price-row + .price-row { margin-top: 4px; }
+    .price-row span:first-child { color: var(--fg-dim); }
+    .price-row span:last-child { font-weight: 700; }
+
     /* ---------- Work info ---------- */
     .spec-text { color: var(--fg-dim); line-height: 2; margin-top: 16px; }
     .story p { color: var(--fg-dim); }
@@ -128,17 +146,6 @@
       letter-spacing: 0.06em; border-top: 1px solid var(--line); background: var(--bg-card);
     }
 
-    /* ---------- Ticket ---------- */
-    .ticket {
-      background:
-        radial-gradient(700px 300px at 50% 0%, rgba(183,28,28,0.18), transparent 65%),
-        var(--bg-soft);
-      text-align: center;
-    }
-    .ticket h2 { margin-bottom: 14px; }
-    .ticket p { max-width: 620px; margin-left: auto; margin-right: auto; }
-    .ticket-sub { margin-top: 16px; font-size: 0.82rem; color: var(--fg-dim); }
-
     /* ---------- Footer ---------- */
     footer { padding: 44px 0 60px; }
     .foot-org { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.05em; }
@@ -154,6 +161,7 @@
       .poster-img { max-width: 240px; margin: 0 auto; }
       .sched-card { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
       .sched-card .btn { justify-self: start; margin-top: 6px; }
+      .price-info { grid-template-columns: 1fr; }
       .trailers { grid-template-columns: 1fr; gap: 14px; }
       section { padding: 44px 0; }
     }
@@ -203,10 +211,29 @@
         <div class="sched-card">
           <div class="sched-date">10/31（土）<small>14:00 開演</small></div>
           <div class="sched-detail">
-            <span class="venue">さいたま市芸術劇場の映像ホール</span><br>
+            <span class="venue">彩の国さいたま芸術劇場 映像ホール</span><br>
             定員150名（上映時間 2時間20分）
           </div>
           <a class="btn btn-sm" href="https://teket.jp/19436/76087" target="_blank" rel="noopener">チケット</a>
+        </div>
+      </div>
+
+      <div class="price-info">
+        <div class="price-card">
+          <span class="price-tag">前売券</span>
+          <div>
+            <p class="price-note">右記QRコードにてご購入</p>
+            <div class="price-row"><span>一般</span><span>¥1,500</span></div>
+            <div class="price-row"><span>高校生以下</span><span>¥1,000</span></div>
+          </div>
+        </div>
+        <div class="price-card">
+          <span class="price-tag">当日券</span>
+          <div>
+            <p class="price-note">当日会場にてご購入</p>
+            <div class="price-row"><span>一般</span><span>¥1,900</span></div>
+            <div class="price-row"><span>高校生以下</span><span>¥1,500</span></div>
+          </div>
         </div>
       </div>
 
@@ -241,20 +268,10 @@
             <div class="trailer-frame">
               <iframe src="https://www.youtube-nocookie.com/embed/xsLBRijyFqQ" title="超限戦 予告編" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
-            <div class="trailer-cap">予告編</div>
+            <div class="trailer-cap">超限戦 予告編</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== Ticket ===== -->
-  <section id="ticket" class="ticket">
-    <div class="wrap">
-      <div class="sec-label">Ticket</div>
-      <h2>チケット</h2>
-      <p>ご予約は不要です。チケットは外部サイト「teket（テケト）」にて販売いたします。上映スケジュールの各回にある「チケット」ボタンから購入ページへお進みください。</p>
-      <p class="ticket-sub">※ 販売ページは準備中です。公開まで今しばらくお待ちください。</p>
     </div>
   </section>
 
@@ -265,7 +282,7 @@
       <p style="margin-top:8px;">映画『超限戦（The Unrestricted War）』上映会 主催</p>
       <p class="foot-desc">未来社会フォーラムは、世界の人権問題、とりわけ中国で続く人権侵害に焦点を当て、未来の社会に必要な価値を考える市民団体です。海外の映画・ドキュメンタリーの上映、本の出版、映画人や弁護士など専門家の招聘を通じて、国際的な人権課題を日本社会へ伝える活動を行っています。現在、NPO法人取得に向けた準備を進めています。</p>
       <div class="foot-links">
-        <a href="https://www.unrestrictedwarmovie.com/" target="_blank" rel="noopener">映画公式サイト ↗</a>
+        <a href="https://www.unrestrictedwarmovie.com/" target="_blank" rel="noopener">映画公式サイト（英語） ↗</a>
       </div>
       <div class="copyright">© 未来社会フォーラム</div>
     </div>
