@@ -89,14 +89,15 @@
     }
     .social-icon {
       display: flex; align-items: center; justify-content: center;
-      width: 46px; height: 46px; border-radius: 50%;
-      background: var(--bg-card); border: 1px solid var(--line);
-      transition: background .15s ease, border-color .15s ease;
+      width: 46px; height: 46px; border-radius: 12px;
+      transition: filter .15s ease, transform .1s ease;
     }
-    .social-icon svg { width: 20px; height: 20px; fill: var(--fg); }
+    .social-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .social-icon.icon-facebook { background: #1877f2; }
+    .social-icon.icon-x { background: #000; border: 1px solid #3a3a3a; }
     .social-item:hover { color: var(--fg); }
-    .social-item:hover .social-icon { background: var(--accent); border-color: var(--accent-bright); }
-    .social-item:hover .social-icon svg { fill: #fff; }
+    .social-item:hover .social-icon { filter: brightness(1.15); }
+    .social-item:active .social-icon { transform: translateY(1px); }
     .poster-img { aspect-ratio: 2 / 3; object-fit: cover; border: 1px solid var(--line); border-radius: 8px; }
 
     /* ---------- Sections ---------- */
@@ -204,22 +205,22 @@
         <h1>超限戦<span class="en">The Unrestricted War</span></h1>
         <div class="social-links">
           <a class="social-item" href="https://fb.me/e/6f8A7ur99" target="_blank" rel="noopener">
-            <span class="social-icon">
+            <span class="social-icon icon-facebook">
               <svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
             </span>
-            <span class="social-label">Facebook<br>（東京会場）</span>
+            <span class="social-label">（東京会場）</span>
           </a>
           <a class="social-item" href="https://fb.me/e/7U8T57Qad" target="_blank" rel="noopener">
-            <span class="social-icon">
+            <span class="social-icon icon-facebook">
               <svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
             </span>
-            <span class="social-label">Facebook<br>（さいたま会場）</span>
+            <span class="social-label">（さいたま会場）</span>
           </a>
           <a class="social-item" href="https://x.com/FutureSocForum" target="_blank" rel="noopener">
-            <span class="social-icon">
+            <span class="social-icon icon-x">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </span>
-            <span class="social-label">X<br>（Twitter）</span>
+            <span class="social-label">（Twitter）</span>
           </a>
         </div>
       </div>
