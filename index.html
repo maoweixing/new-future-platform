@@ -60,8 +60,6 @@
     .btn:hover { background: var(--accent-bright); }
     .btn:active { transform: translateY(1px); }
     .btn-sm { padding: 9px 16px; font-size: 0.85rem; }
-    .btn-outline { background: transparent; color: var(--fg-dim); border-color: var(--line); }
-    .btn-outline:hover { background: var(--bg-card); color: var(--fg); border-color: var(--accent-bright); }
 
     /* ---------- Hero ---------- */
     .hero {
@@ -83,8 +81,22 @@
       letter-spacing: 0.02em; font-weight: 800;
     }
     .hero h1 .en { display: block; font-size: 0.42em; letter-spacing: 0.18em; color: var(--fg-dim); font-weight: 600; margin-top: 10px; }
-    .hero-cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
-    .social-links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .social-links { margin-top: 32px; display: flex; gap: 24px; flex-wrap: wrap; }
+    .social-item {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--fg-dim); font-size: 0.74rem; text-align: center;
+      line-height: 1.4;
+    }
+    .social-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--bg-card); border: 1px solid var(--line);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .social-icon svg { width: 20px; height: 20px; fill: var(--fg); }
+    .social-item:hover { color: var(--fg); }
+    .social-item:hover .social-icon { background: var(--accent); border-color: var(--accent-bright); }
+    .social-item:hover .social-icon svg { fill: #fff; }
     .poster-img { aspect-ratio: 2 / 3; object-fit: cover; border: 1px solid var(--line); border-radius: 8px; }
 
     /* ---------- Sections ---------- */
@@ -190,13 +202,25 @@
       <div>
         <span class="eyebrow">そしてコロナが広まった</span>
         <h1>超限戦<span class="en">The Unrestricted War</span></h1>
-        <div class="hero-cta">
-          <a class="btn" href="#schedule">上映スケジュール</a>
-        </div>
         <div class="social-links">
-          <a class="btn btn-outline btn-sm" href="https://fb.me/e/6f8A7ur99" target="_blank" rel="noopener">Facebook（東京会場）</a>
-          <a class="btn btn-outline btn-sm" href="https://fb.me/e/7U8T57Qad" target="_blank" rel="noopener">Facebook（さいたま会場）</a>
-          <a class="btn btn-outline btn-sm" href="https://x.com/FutureSocForum" target="_blank" rel="noopener">X（Twitter）</a>
+          <a class="social-item" href="https://fb.me/e/6f8A7ur99" target="_blank" rel="noopener">
+            <span class="social-icon">
+              <svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+            </span>
+            <span class="social-label">Facebook<br>（東京会場）</span>
+          </a>
+          <a class="social-item" href="https://fb.me/e/7U8T57Qad" target="_blank" rel="noopener">
+            <span class="social-icon">
+              <svg viewBox="0 0 320 512" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+            </span>
+            <span class="social-label">Facebook<br>（さいたま会場）</span>
+          </a>
+          <a class="social-item" href="https://x.com/FutureSocForum" target="_blank" rel="noopener">
+            <span class="social-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </span>
+            <span class="social-label">X<br>（Twitter）</span>
+          </a>
         </div>
       </div>
       <img class="poster-img" src="poster.jpg" alt="超限戦 ポスター">
