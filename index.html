@@ -125,6 +125,14 @@
     .sched-detail { color: var(--fg-dim); font-size: 0.95rem; }
     .sched-detail .venue { color: var(--fg); font-weight: 600; }
     .sched-note { color: var(--fg-dim); font-size: 0.9rem; margin-top: 8px; }
+    .sched-card.is-ended .sched-date,
+    .sched-card.is-ended .sched-date small,
+    .sched-card.is-ended .sched-detail,
+    .sched-card.is-ended .sched-detail .venue { color: #77777f; }
+    .btn-disabled {
+      background: #353539; color: #85858c; border-color: #45454b;
+      cursor: not-allowed;
+    }
 
     .price-table-wrap {
       margin-top: 20px; background: var(--bg-card); border: 1px solid var(--line);
@@ -235,13 +243,13 @@
       <h2>上映スケジュール</h2>
 
       <div class="schedule">
-        <div class="sched-card">
+        <div class="sched-card is-ended">
           <div class="sched-date">10/25（日）<small>15:00 開演</small></div>
           <div class="sched-detail">
-            <span class="venue">シネマハウス大塚</span><br>
+            <span class="venue">シネマハウス大塚（終了）</span><br>
             定員56名（上映時間 2時間20分）
           </div>
-          <a class="btn btn-sm" href="https://teket.jp/19436/75953" target="_blank" rel="noopener">チケット</a>
+          <span class="btn btn-sm btn-disabled" aria-disabled="true">チケット</span>
         </div>
         <div class="sched-card">
           <div class="sched-date">10/31（土）<small>14:00 開演</small></div>
